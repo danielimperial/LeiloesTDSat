@@ -139,6 +139,11 @@ public class cadastroVIEW extends javax.swing.JFrame {
         
     }//GEN-LAST:event_cadastroNomeActionPerformed
 
+    private void clearFields(){
+        cadastroNome.setText("");
+        cadastroValor.setText("");
+    }
+    
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         ProdutosDTO produto = new ProdutosDTO();
         String nome = cadastroNome.getText();
@@ -149,7 +154,8 @@ public class cadastroVIEW extends javax.swing.JFrame {
         produto.setStatus(status);
         
         ProdutosDAO produtodao = new ProdutosDAO();
-        produtodao.cadastrarProduto(produto);
+        produtodao.cadastrarProduto(produto, this);
+        clearFields();
         
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
